@@ -10,7 +10,7 @@ class Menu:
         self.description = desc
 
     @abstractmethod
-    def execute(self, note: list):
+    def execute(self, note: dict):
         pass
 
     def get_name(self):

@@ -1,6 +1,6 @@
 class Control:
     menu: dict
-    notes: list
+    notes: dict
 
     def __init__(self, notes, menu):
         self.notes = notes
