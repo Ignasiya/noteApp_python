@@ -1,10 +1,16 @@
-class Control:
-    menu: dict
-    notes: list
+import tabulate
 
-    def __init__(self, notes, menu):
+
+class Control:
+    _menu: dict
+    _notes: list
+
+    def __init__(self, notes, menu: list):
         self.notes = notes
-        self.menu = menu
+        temp = {}
+        for m in menu:
+            temp[m.get_name()] = m
+        self.menu = temp
 
     def get_notes(self):
         return self.notes
@@ -12,5 +18,17 @@ class Control:
     def get_menu(self):
         return self.menu
 
-    def on_execute(self, item: str):
-        self.menu[item].execute(self.notes)
+    def on_execute(self, key: str):
+        if key == 'help':
+            self.help()
+        else:
+            try:
+                self.notes = self.menu[key].execute(self.notes)
+            except KeyError:
+                print("неверная команда")
+
+    def help(self):
+        temp = []
+        for k, v in self.get_menu().items():
+            temp.append([k, v.get_desc()])
+        print(tabulate.tabulate(temp))

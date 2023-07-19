@@ -5,5 +5,5 @@ from module.menu import Menu
 
 class Delete(Menu, ABC):
 
-    def execute(self, note: list):
+    def execute(self, notes: list):
         pass
