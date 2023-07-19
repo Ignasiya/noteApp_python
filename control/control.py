@@ -3,9 +3,9 @@ import tabulate
 
 class Control:
     _menu: dict
-    _notes: list
+    _notes: dict
 
-    def __init__(self, notes, menu: list):
+    def __init__(self, notes: dict, menu: list):
         self.notes = notes
         temp = {}
         for m in menu:
@@ -25,7 +25,7 @@ class Control:
             try:
                 self.notes = self.menu[key].execute(self.notes)
             except KeyError:
-                print("неверная команда")
+                print("неверное значение")
 
     def help(self):
         temp = []

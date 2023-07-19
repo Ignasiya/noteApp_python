@@ -15,14 +15,15 @@ def start(control):
             key = input('->')
             control.on_execute(key)
         except KeyboardInterrupt:
-            print("ошибка")
+            print("выход")
+            exit()
 
 
 class View:
     control: Control
 
     def __init__(self):
-        notes = []
+        notes = {}
         self.control = Control(notes, [Read('read', 'считать из файла'),
                                        Show('show', 'посмотреть'),
                                        Edit('edit', 'редактировать'),

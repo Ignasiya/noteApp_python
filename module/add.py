@@ -7,11 +7,12 @@ from module.menu import Menu
 
 class Add(Menu, ABC):
 
-    def execute(self, notes: list):
+    def execute(self, notes: dict) -> dict:
         name, body = input('введите имя заметки ->'), input('введите описание ->')
         last_id = 0
-        if notes: last_id = notes[-1].get_id()
+        if notes:
+            last_id = max(notes)
         note = Note(last_id + 1, name, body, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        notes.append(note)
+        notes[note.get_id()] = note
         print('заметка добавлена')
         return notes
