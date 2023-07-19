@@ -7,5 +7,7 @@ from module.menu import Menu
 class Save(Menu, ABC):
 
     def execute(self, note: list):
-        with open("data_file.json", "w", encoding="utf-8") as write_file:
-            json.dump(note, write_file, default=lambda x: x.__dict__)
+        if note:
+            with open("data_file.json", "w", encoding="UTF-8") as file:
+                file.write(json.dumps(note, default=lambda x: x.__dict__, ensure_ascii=False))
+        else: print("ошибка, база пуста")
