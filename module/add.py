@@ -1,7 +1,7 @@
 from abc import ABC
 from datetime import datetime
 
-from data.notes import Note
+from data.note import Note
 from module.menu import Menu
 
 
