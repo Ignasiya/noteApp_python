@@ -1,7 +1,7 @@
 import json
 from abc import ABC
 
-from data.notes import Note
+from data.note import Note
 from module.menu import Menu
 
 
