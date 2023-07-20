@@ -32,7 +32,7 @@ class View:
                                        Delete('del', 'удалить'),
                                        Save('save', 'сохранить в файл'),
                                        ShowAll('shall', 'посмотреть всю базу'),
-                                       ShowId('shid', 'посмотреть по номеру заметки'),
+                                       ShowId('shid', 'посмотреть по номеру'),
                                        ShowDate('shdt', 'посмотреть по дате'),
                                        Exit('exit', 'выход')])
         start(self.control)
